@@ -46,13 +46,13 @@ html {
 	@extend .clear;
 }
 
-.col-no-padding {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-}
-
 .row {
 	@extend .clear;
+}
+
+.no-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 // == All Columns =======================================
