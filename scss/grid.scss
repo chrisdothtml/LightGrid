@@ -1,0 +1,182 @@
+/*
+ *
+ * Author: Chris Deacy
+ * Author Website: http://deacy.io
+ *
+ * Feel free to use and edit this grid to your liking.
+ *
+ */
+
+$columns: 12;
+
+//Desktop max
+$desktop: 1200;
+//Tablet max
+$tablet: 999;
+//Mobile max
+$mobile: 599;
+
+* {
+	margin: 0;
+	padding: 0;
+
+	&,
+	&:before,
+	&:after {
+		box-sizing: inherit;
+	}
+}
+
+html {
+	box-sizing: border-box;
+}
+
+.clear:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.container {
+	width: 100%;
+	max-width: #{$desktop}px;
+	min-width: 280px;
+	margin: 0 auto;
+	padding: 0 15px;
+	@extend .clear;
+}
+
+.col-no-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.row {
+	@extend .clear;
+}
+
+// == All Columns =======================================
+$allColumns: '';
+
+@for $i from 1 through $columns {
+
+	$allColumns: $allColumns + ".col#{$i}-desktop, .col#{$i}-tablet, .col#{$i}-mobile, .col#{$i}";
+
+	@if $i != 12 {
+		$allColumns: $allColumns + ", ";
+	}
+}
+
+#{$allColumns} {
+	width: 100%;
+	min-height: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+// == Mobile Columns and Margins ========================
+@for $i from 1 through $columns {
+
+	.col#{$i}-mobile,
+	.col#{$i} {
+		width: ($i / $columns) * 100%;
+		float: left;
+	}
+}
+
+@for $i from 0 through $columns {
+
+	//mobile left classes
+	.left#{$i}-mobile,
+	.left#{$i} {
+		margin-left: ($i / $columns) * 100%;
+	}
+
+	//mobile right classes
+	.right#{$i}-mobile,
+	.right#{$i} {
+		margin-right: ($i / $columns) * 100%;
+	}
+}
+
+// == Tablet Columns and Margins ========================
+@media (min-width: #{$mobile+1}px) {
+
+	@for $i from 1 through $columns {
+
+		.col#{$i}-tablet {
+			width: ($i / $columns) * 100%;
+			float: left;
+		}
+	}
+
+	@for $i from 0 through $columns {
+
+		//tablet left classes
+		.left#{$i}-tablet {
+			margin-left: ($i / $columns) * 100%;
+		}
+
+		//tablet right classes
+		.right#{$i}-tablet {
+			margin-right: ($i / $columns) * 100%;
+		}
+	}
+}
+
+// == Desktop Columns and Margins ========================
+@media (min-width: #{$tablet+1}px) {
+
+	@for $i from 1 through $columns {
+
+		.col#{$i}-desktop {
+			width: ($i / $columns) * 100%;
+			float: left;
+		}
+	}
+
+	@for $i from 0 through $columns {
+
+		//desktop left classes
+		.left#{$i}-desktop {
+			margin-left: ($i / $columns) * 100%;
+		}
+
+		//desktop right classes
+		.right#{$i}-desktop {
+			margin-right: ($i / $columns) * 100%;
+		}
+	}
+}
+
+// == Hides/Shows ========================================
+
+//Desktop
+@media (min-width: #{$tablet+1}px) {
+
+	.hide-desktop,
+	.show-tablet,
+	.show-mobile {
+		display: none  !important;
+	}
+}
+
+//Tablet
+@media (max-width: #{$tablet}px) and (min-width: #{$mobile+1}px) {
+
+	.hide-tablet,
+	.show-desktop,
+	.show-mobile {
+		display: none !important;
+	}
+}
+
+//Mobile
+@media (max-width: #{$mobile}px) {
+
+	.hide-mobile,
+	.show-desktop,
+	.show-tablet {
+		display: none !important;
+	}
+}
