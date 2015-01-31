@@ -14,4 +14,4 @@ While there are plenty of pre-packaged responsive libraries out there, LightGrid
 
 ### Demo
 
-You can view a Demo of LightGrid [here](//codepen.io/chrisdothtml/pen/razGKG?editors=110).
+You can view a Demo of LightGrid [here](http://codepen.io/chrisdothtml/pen/razGKG).
