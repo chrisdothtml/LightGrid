@@ -11,3 +11,7 @@ While there are plenty of pre-packaged responsive libraries out there, LightGrid
 1. Download the files
 2. Either add the Scss to your project, or call the compiled Css in your Html
 3. There is no Step 3; you're done.
+
+### Demo
+
+You can view a Demo of LightGrid [here](//codepen.io/chrisdothtml/pen/razGKG?editors=110).
