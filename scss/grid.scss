@@ -64,7 +64,7 @@ $allColumns: '';
 
 	$allColumns: $allColumns + ".col#{$i}-desktop, .col#{$i}-tablet, .col#{$i}-mobile, .col#{$i}";
 
-	@if $i != 12 {
+	@if $i != $columns {
 		$allColumns: $allColumns + ", ";
 	}
 }
