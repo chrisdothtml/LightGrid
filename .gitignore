@@ -42,3 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 prepros.cfg
+
+# Node Modules
+node_modules/
