@@ -5,18 +5,22 @@ module.exports = (grunt) ->
 
 		sass:
 			options:
-				style: 'compressed'
-			dist:
-				files:
-					'src/lightgrid.css': 'src/lightgrid.scss'
+				outputStyle: 'expanded'
+				indentType: 'tab'
+				indentWidth: '1'
+			src:
+				expand: true
+				src: 'src/<%=pkg.name%>.scss'
+				ext: '.css'
 		autoprefixer:
-			main:
-				src: 'src/lightgrid.css'
-				dest: ''
+			src:
+				expand: true
+				src: 'src/<%=pkg.name%>.css'
 		cssmin:
-			target:
-				files:
-					'src/lightgrid.min.css': ['src/lightgrid.css']
+			dist:
+				expand: true
+				src: 'src/<%=pkg.name%>.css'
+				ext: '.min.css'
 		watch:
 			css:
 				files: ['src/*.scss']
